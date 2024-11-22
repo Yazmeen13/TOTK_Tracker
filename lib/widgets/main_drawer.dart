@@ -12,12 +12,12 @@ class MainDrawer extends StatelessWidget {
       shadowColor: Theme.of(context).colorScheme.surfaceBright,
       child: Column(
         children: [
-          // Drawer Heading
           SizedBox(
-            height: 64,
+            height: (MediaQuery.sizeOf(context).height / 10)
+                .clamp(64, double.infinity),
             child: DrawerHeader(
               margin: const EdgeInsets.all(0.0),
-              padding: const EdgeInsets.all(0.0),
+              padding: const EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                 gradient: LinearGradient(colors: [
                   Theme.of(context).colorScheme.primary,
@@ -29,14 +29,15 @@ class MainDrawer extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("[Username]", 
-                    // style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+                    const Text(
+                      "[Username]",
+                      // style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
                     ),
                     IconButton(
                       // iconSize: 36,
                       icon: const Icon(Icons.settings),
                       color: Theme.of(context).colorScheme.onSurface,
-                      onPressed: (){
+                      onPressed: () {
                         onSelectScreen(3, 'Settings');
                       },
                     ),
